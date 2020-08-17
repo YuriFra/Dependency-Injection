@@ -11,24 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Capitalize implements Transform
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $string;
+    private int $id;
+    private string $string;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getString(): ?string
+    public function getString(): string
     {
         return $this->string;
     }
@@ -42,12 +33,10 @@ class Capitalize implements Transform
 
     public function transform(string $string): string
     {
-        // TODO: Implement transform() method.
-        $text = $this->getString();
-        $length = strlen($text);
+        $length = strlen($string);
         for ($i = 0; $i < $length; $i += 2) {
-            $text[$i] = strtoupper($text[$i]);
+            $string[$i] = strtoupper($string[$i]);
         }
-        return $text;
+        return $string;
     }
 }

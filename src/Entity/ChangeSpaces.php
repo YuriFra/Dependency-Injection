@@ -42,8 +42,6 @@ class ChangeSpaces implements Transform
 
     public function transform(string $string): string
     {
-        // TODO: Implement transform() method.
-        $text = $this->getString();
-        return str_replace(" ", "-", $text);
+        return str_replace(" ", "-", $string);
     }
 }
